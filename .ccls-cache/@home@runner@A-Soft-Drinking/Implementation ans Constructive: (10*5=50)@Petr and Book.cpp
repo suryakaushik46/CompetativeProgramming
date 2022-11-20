@@ -10,18 +10,25 @@ int main(){
      sum+=arr[i];
   }
   int x=n%sum;
-  int y=n/sum;
   int ans=0;
-  int i=0;
-  for(i=0;i<7;i++){
+  if(x==0){
+       cout<<1<<endl;
+       return 0;
+  }
+  int c=0;
+  for(int i=0;i<7;i++){
+     
      if(x<=0){
         break;
-     }else{
-        y++;
-        x-=arr[i];
      }
+     else{
+        x-=arr[i];
+        c++;
+     }
+     
   }
-  cout<<i+1<<endl;
+  cout<<c<<endl;
+  
   
   return 0;
 }
