@@ -12,7 +12,9 @@ int main(){
   for(int i=0;i<s.size();i++){
     arr[s[i]-'a']++;
   }
+ 
   string ans="";
+  int y=s.size()/n;
   for(int i=0;i<26;i++){
      if(arr[i]%n!=0){
         cout<<-1<<endl;
@@ -24,10 +26,12 @@ int main(){
         }
      }
   }
-  for(int i=1;i<n;i++){
-     ans+=ans;
+  string a;
+  
+  for(int i=0;i<n;i++){
+      a+=ans;
   }
-  cout<<ans<<endl;
+  cout<<a<<endl;
   
   
   return 0;
