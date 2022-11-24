@@ -13,12 +13,18 @@ int main(){
        break;
     }
   }
-  if(flag){
-    ans+=toupper(s[0]);
+  if(!flag){
+    if(s[0]>='A'&& s[0]<='Z'){
+        ans+=tolower(s[0]);
+    }else{
+       ans+=toupper(s[0]);
+    }
     for(int i=1;i<s.size();i++){
        ans+=tolower(s[i]);
-       return 0;
+       
     }
+    cout<<ans<<endl;
+    return 0;
   }
   cout<<s<<endl;
   return 0;
