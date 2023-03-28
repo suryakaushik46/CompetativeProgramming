@@ -79,6 +79,7 @@
 
 // tried like this but lot of cases I missed so thinking again
 
+// think of binary search when the search space is linearly increasing
 
 #include<bits/stdc++.h>
 #define int long long
@@ -106,7 +107,6 @@ void solve(){
   maxb=nb+rub/pb;
   maxs=ns+rub/ps;
   maxc=nc+rub/pc;
-  cout<<maxb<<" "<<maxs<<" "<<maxc<<endl;
  int high=0;
   if(cb>0){
     high=max(maxb/cb,high);
@@ -119,23 +119,22 @@ void solve(){
   }
   int low=0;
   int ans=0;
-  while(low<high){
+  int rubs=rub;
+  while(low<=high){
+     rub=rubs;
      int mid=(low+high)/2;
-     cout<<mid<<" mid"<<endl;
      int xb=cb*mid;
      int xs=cs*mid;
      int xc=cc*mid;
-     cout<<xb<<" "<<xs<<" "<<xc<<endl;
-     bool flag=true;
-     if(nb<xb&&rub>0){
+     if(nb<xb){
        xb=xb-nb;
        rub-=pb*xb;
      }
-     if(ns<xs&&rub>0){
+     if(ns<xs){
        xs=xs-ns;
        rub-=ps*xs;
      }
-     if(nc<xc&&rub>0){
+     if(nc<xc){
        xc=xc-nc;
        rub-=pc*xc;
      }
@@ -145,7 +144,7 @@ void solve(){
         ans=mid;
         low=mid+1;
      }
-
+ 
   }
   cout<<ans<<endl;
 }
@@ -154,7 +153,7 @@ int32_t main(){
   cin.tie(nullptr);
   cout.tie(nullptr);
   int t=1;
-  cin>>t;
+  //cin>>t;
   while(t--){
     solve();
   }
